@@ -1,0 +1,23 @@
+
+generator client {
+  provider = "prisma-client"
+  output   = "../src/@generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Task {
+  id          String    @id @default(cuid())
+  title       String    @unique
+  description String
+  status      Status    @default(PENDING)
+  createdAt   DateTime
+  updatedAt   DateTime
+}
+
+enum Status {
+  PENDING
+  COMPLETED
+}
