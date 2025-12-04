@@ -4,6 +4,7 @@
   "description": "Simple Task manager server built using Node.js and express.js with unit & integration tests using jest",
   "main": "dist/index.js",
   "scripts": {
+    "test": "dotenv -- jest",
     "build": "tsc && tsc-alias",
     "start": "dotenv -- node dist/index.js",
     "dev": "dotenv -- tsx watch src/index.ts"
@@ -12,11 +13,14 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@jest/globals": "^30.2.0",
     "@types/cors": "^2.8.19",
     "@types/express": "^5.0.6",
     "@types/node": "^24.10.1",
+    "@types/supertest": "^6.0.3",
     "dotenv-cli": "^11.0.0",
     "prisma": "^7.1.0",
+    "ts-jest": "^29.4.6",
     "tsc-alias": "^1.8.16",
     "tsx": "^4.21.0",
     "typescript": "^5.9.3"
@@ -27,6 +31,8 @@
     "cors": "^2.8.5",
     "dotenv": "^17.2.3",
     "express": "^5.2.1",
+    "jest": "^30.2.0",
+    "supertest": "^7.1.4",
     "zod": "^4.1.13"
   }
 }

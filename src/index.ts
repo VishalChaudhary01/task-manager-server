@@ -4,8 +4,9 @@ import { Env } from "./config/Env.config";
 import { AppError, errorHandler } from "./middlewares/error-handler";
 import { StatusCode } from "./config/status-code.config";
 import taskRoutes from "./routes/task.route";
+import { prisma } from "./config/prisma";
 
-const app = express();
+export const app = express();
 const PORT = Env.PORT;
 
 app.use(cors({ origin: "*" }));

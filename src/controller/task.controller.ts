@@ -18,6 +18,16 @@ export const getTasks: RequestHandler = async (req, res) => {
 export const createTask: RequestHandler = async (req, res) => {
   const data = createTaskSchema.parse(req.body);
 
+  const existingTask = await prisma.task.findUnique({
+    where: { title: data.title },
+  });
+  if (existingTask) {
+    throw new AppError(
+      "Task with given title is already present",
+      StatusCode.CONFLICT
+    );
+  }
+
   const task = await prisma.task.create({
     data: { ...data },
   });

@@ -10,7 +10,7 @@ datasource db {
 
 model Task {
   id          String    @id @default(cuid())
-  title       String
+  title       String    @unique
   description String?
   status      Status    @default(PENDING)
   createdAt   DateTime  @default(now())
