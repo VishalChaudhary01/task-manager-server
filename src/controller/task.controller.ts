@@ -8,7 +8,7 @@ import {
 import { RequestHandler } from "express";
 
 export const getTasks: RequestHandler = async (req, res) => {
-  const tasks = await prisma.task.findMany();
+  const tasks = await prisma.task.findMany({ orderBy: { createdAt: "desc" } });
 
   res
     .status(StatusCode.OK)
